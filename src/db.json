@@ -2,13 +2,33 @@
   "todos": [
     {
       "id": "0",
-      "title": "Написать новый компонент",
+      "title": "Написать новый компонент 22",
+      "completed": true
+    },
+    {
+      "id": "4c04",
+      "title": "Дублёр",
       "completed": false
     },
     {
-      "id": "1",
-      "title": "Hello everybody I`m Lara!",
+      "id": "8e8f",
+      "title": "А",
       "completed": true
+    },
+    {
+      "id": "b38d",
+      "title": "В",
+      "completed": false
+    },
+    {
+      "id": "f05e",
+      "title": "Новая задача 22",
+      "completed": false
+    },
+    {
+      "id": "21df",
+      "title": "Очень длинное задание. Не помещается в одну строку, нужно сделать многоточие",
+      "completed": false
     }
   ]
 }

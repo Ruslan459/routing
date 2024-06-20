@@ -4,18 +4,5 @@
 	border-bottom: 2px solid gray;
 	border-radius: 40px;
 	display: flex;
-}
-
-.search {
-	width: 280px;
-	height: 25px;
-	margin: 0px 15px;
-	border-radius: 10px;
-	padding: 0px 10px;
-}
-
-.sort {
-	width: 25px;
-	height: 25px;
-	margin: 0px 0px;
+	justify-content: flex-end;
 }

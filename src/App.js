@@ -1,49 +1,15 @@
-import { useEffect, useState } from 'react';
-import { Todo, ControlPanel } from './components';
-import { readTodos, updateTodo, deleteTodo } from './api';
-import { removeTodo, setTodo } from './utils';
+import { Routes, Route } from 'react-router-dom';
 import styles from './App.module.css';
+import { MainPage, NotFound, TodoPage } from './pages';
 
-export const App = () => {
-	const [todos, setTodos] = useState([]);
-
-	const onTodoSave = (id, newTitle) => {
-		updateTodo({ id, title: newTitle }).then(() => {
-			setTodo({ id, title: newTitle, isEditing: false });
-		});
-	};
-
-	const onTodoEdit = (id) => {
-		setTodo({ id, isEditing: true });
-	};
-
-	const onTodoTitleChange = () => {};
-
-	const onTodoRemove = (id) => {
-		deleteTodo(id).then(removeTodo(todos, id));
-	};
-
-	useEffect(() => {
-		readTodos().then((todosData) => setTodos(todosData));
-	}, []);
-
-	return (
-		<div className={styles.App}>
-			<ControlPanel />
-			<div className={styles.todos}>
-				{todos.map(({ id, title, completed, isEditing = false }) => (
-					<Todo
-						key={id}
-						id={id}
-						title={title}
-						completed={completed}
-						onEdit={() => onTodoEdit(id)}
-						onTitileChange={(newTitile) => onTodoTitleChange(id, title)}
-						onSave={() => onTodoSave(id)}
-						onRemove={() => onTodoRemove(id)}
-					/>
-				))}
-			</div>
-		</div>
-	);
-};
+export const App = () => (
+	<div className={styles.App}>
+		<Routes>
+			<Route path="/" element={<MainPage />} />
+			<Route path="/task" element={<TodoPage />} />
+			<Route path="/task/:id" element={<TodoPage />} />
+			<Route path="/404" element={<NotFound />} />
+			<Route path="*" element={<NotFound />} />
+		</Routes>
+	</div>
+);

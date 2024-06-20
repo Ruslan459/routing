@@ -1,4 +1,4 @@
-export const setTodo = (todos, newTodoData) =>
+export const setTodoInTodos = (todos, newTodoData) =>
 	todos.map((todo) =>
 		todo.id === newTodoData.id
 			? {
